@@ -6,8 +6,7 @@ This app lets people add their resumes/linkedIn, fill in some of their interests
 
 ## v1
 
-- [ ] Code up a landing page
-- [ ] Add authentication with Clerk
+- [x] Code up a landing page, use PDFToChat/QRGPT as inspo
 - [ ] Dashboard screen with upload functionality using Bytescale
 - [ ] Use PDF parsing logic & add it as context along with the form data
 - [ ] Multi-step form where people can add their interests
@@ -18,6 +17,7 @@ This app lets people add their resumes/linkedIn, fill in some of their interests
 ## v2 (stretch)
 
 - [ ] Fine-tune Llama-3-8B on making a job plan. Maybe fine-tune Llama-3-8B on GPT-4 outputs
+- [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Add functionality for people to alternatively paste in their LinkedIn URL instead of resume
 - [ ] Add web search logic with Brave to be able to add courses to the app
 - [ ] Add: Who do I want to be more like? functionality
