@@ -10,7 +10,7 @@ export default function Hero() {
           <button
             className={`border py-2 rounded-2xl hover:bg-gray-100 transition px-5 text-sm text-gray-500 hover:text-gray-600`}
           >
-            Built during the Llama-3 hackathon in SF
+            Built during the Llama-3 hackathon in SF: May 12, 2024
           </button>
           <h1 className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'>
             Explore the right careers
