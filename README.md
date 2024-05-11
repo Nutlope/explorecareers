@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Career Exploration app
 
-## Getting Started
+> This app was built for the LLama-3 hackathon in San Francisco.
 
-First, run the development server:
+This app lets people add their resumes/linkedIn, fill in some of their interests, and get a list of possible careers they could do.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## v1
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [ ] Code up a landing page
+- [ ] Add authentication with Clerk
+- [ ] Dashboard screen with upload functionality using Bytescale
+- [ ] Use PDF parsing logic & add it as context along with the form data
+- [ ] Multi-step form where people can add their interests
+- [ ] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
+- [ ] Modal that provides a plan for how to transition to each career
+- [ ] Test end-to-end flow and make sure it works properly
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## v2 (stretch)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [ ] Fine-tune Llama-3-8B on making a job plan. Maybe fine-tune Llama-3-8B on GPT-4 outputs
+- [ ] Add functionality for people to alternatively paste in their LinkedIn URL instead of resume
+- [ ] Add web search logic with Brave to be able to add courses to the app
+- [ ] Add: Who do I want to be more like? functionality
+- [ ] Add functionality to let users suggest new careers themselves
 
-## Learn More
+## Inspiration
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- https://www.wanderer.space
