@@ -4,18 +4,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import NavLink from './NavLink';
 import Image from 'next/image';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [state, setState] = useState(false);
 
-  const navigation = [
-    // { title: 'Testimonials', path: '#testimonials' },
-    { title: 'Homepage', path: '/' },
-  ];
+  const navigation = [{ title: 'Homepage', path: '/' }];
 
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Add closing the navbar menu when navigating
@@ -25,7 +21,7 @@ const Header = () => {
     };
 
     handleState();
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   const handleNavMenu = () => {
     setState(!state);

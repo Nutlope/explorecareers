@@ -22,6 +22,7 @@ This app lets people add their resumes/linkedIn, fill in some of their interests
 - [ ] Add web search logic with Brave to be able to add courses to the app
 - [ ] Add: Who do I want to be more like? functionality
 - [ ] Add functionality to let users suggest new careers themselves
+- [ ] Improve PDF parsing functionality to include image detection and OCR
 
 ## Inspiration
 
