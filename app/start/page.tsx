@@ -167,7 +167,7 @@ export default function Start() {
   );
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [parsedResume, setParsedResume] = useState('');
-  const [careerInfo, setCareerInfo] = useState([]);
+  const [careerInfo, setCareerInfo] = useState(['a', 'b']);
   const [additionalContext, setAdditionalContext] = useState('');
   const [loading, setLoading] = useState(false);
 
