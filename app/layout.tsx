@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 let title = 'Explore Careers';
 let description = 'Explore careers based on your interests & skills';
 let url = 'https://explorecareers.io/';
-let ogimage = 'https://explorecareers.io/og-image-new.png';
+let ogimage = 'https://explorecareers.io/og-image.png';
 let sitename = 'ExploreCareers.io';
 
 export const metadata: Metadata = {

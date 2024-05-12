@@ -1,10 +1,33 @@
-# Career Exploration app
+<a href="https://www.explorecareers.io">
+  <img alt="Explore Careers." src="./public/og-image.png">
+  <h1 align="center">ExploreCareers</h1>
+</a>
+
+<p align="center">
+  Explore careers relevant for you in seconds. Powered by LLama-3.
+</p>
+
+<p align="center">
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
+  <a href="#tasks"><strong>Tasks</strong></a> ·
+  <a href="#inspiration"><strong>Inspiration</strong></a> ·
+  <a href="#future-tasks"><strong>Future Tasks</strong></a>
+</p>
+<br/>
 
 > This app was originally built for the LLama-3 hackathon in San Francisco.
 
-This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
+## Tech Stack
 
-## v0.5 – get something working where a user can upload their resume & get some possible careers
+- Llama-3 through [Groq](https://groq.com/) for LLM inference
+- [S3 / ByteScale](https://www.bytescale.com/) for the PDF storage
+- Next.js [App Router](https://nextjs.org/docs/app) for the framework
+- [Vercel](https://vercel.com/) for hosting
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+
+## Tasks
+
+This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
 
 - [x] Code up a landing page, use PDFToChat/QRGPT as inspo
 - [x] Dashboard screen with upload functionality using Bytescale
@@ -12,19 +35,16 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
 - [x] Add Groq endpoint that takes in a user's info & outputs job summaries.
 - [x] Add loading state that goes between resume upload & showing the final list of careers
-
-## v1 – add more info in modal w/ extra call + more context of what the user wants
-
 - [x] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
+- [x] Add another Groq endpoint to generate things for each specific job modal
 - [ ] Code modal that provides a plan for how to transition to each career
-- [ ] Add another Groq endpoint to generate things for each specific job modal
-- [ ] Present at the hackathon for now
-- [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 
 ## Future tasks
 
+- [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 - [ ] Add observability with helicone for this app to try out something new
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
+- [ ] Add rate limiting with Redis Upstash
 - [ ] Add a settings screen where users can go update their resume and interests overall
 - [ ] Add functionality to let users suggest new careers themselves and get a developed plan for it
 - [ ] Use Crew AI agents to make this workflow more robust overall: An agent that takes resume & extra info then outputs a very nice summary with keywords. An agent that comes up with multiple possible career paths from that summary. An agent that then constructs a plan for each career.
@@ -35,4 +55,4 @@ This app lets people upload their resumes, fill in some of their interests, and 
 
 ## Inspiration
 
-I took heavy inspiration from [wanderer.space](https://www.wanderer.space) for this app. Check them out if you want a more complete app that has even more features!
+I took inspiration from [wanderer.space](https://www.wanderer.space) for this app.
