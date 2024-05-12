@@ -37,7 +37,11 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Add loading state that goes between resume upload & showing the final list of careers
 - [x] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
 - [x] Add another Groq endpoint to generate things for each specific job modal
-- [ ] Code modal that provides a plan for how to transition to each career
+- [x] Code modal that provides a plan for how to transition to each career
+- [ ] Figure out how to set nodes dynamically in React flow from the backend
+- [ ] Combine two groq endpoints into one so one can return a big object for everything that's needed
+- [ ] Test full end to end flow and fix any issues, including on prod
+- [ ] Make architecture diagram and add it to the slides, & edit future work
 
 ## Future tasks
 
