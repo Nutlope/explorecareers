@@ -171,10 +171,29 @@ export default function Start() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Do some setNodes stuff here
-  }, [parsedResume, careerInfo]);
+    setNodes((initialNodes) =>
+      initialNodes.map((node) => {
+        if (node.id === '1') {
+          node.data = {
+            label: 'Careers',
+          };
+        } else {
+          let realdata = careerInfo[Number(node.id) - 2];
 
-  console.log({ url, parsedResume, careerInfo });
+          if (node.id === '2' || node.id === '3' || node.id === '6') {
+            // @ts-ignore
+            node.data = { ...realdata, connectPosition: 'top' };
+          } else {
+            // @ts-ignore
+            node.data = { ...realdata, connectPosition: 'bottom' };
+          }
+        }
+        return node;
+      })
+    );
+  }, [careerInfo]);
+
+  console.log({ nodes, careerInfo, parsedResume });
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -204,7 +223,7 @@ export default function Start() {
       }),
     });
     let data2 = await response2.json();
-    setCareerInfo(data2);
+    setCareerInfo(JSON.parse(data2));
     setLoading(false);
   }
 

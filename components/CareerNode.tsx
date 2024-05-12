@@ -105,7 +105,7 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
               <h2 className='text-lg font-semibold mb-2'>
                 Why it's a good fit
               </h2>
-              <ul className='list-disc'>
+              <ul className='list-disc ml-4'>
                 <li>
                   You have experience with SQL and enjoy working with data
                 </li>
@@ -145,6 +145,14 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
                 <div>
                   Prepare your resume and start applying for SEO Specialist
                   positions. Leverage your portfolio to showcase your expertise.
+                </div>
+              </div>
+              <div className='flex gap-3'>
+                <div className='font-light'>Weeks 13-18:</div>
+                <div>
+                  Continuously learn new tools and techniques to stay up-to-date
+                  in the field. Network with other data analysts to learn about
+                  new opportunities and best practices.
                 </div>
               </div>
             </div>
