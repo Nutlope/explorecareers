@@ -33,9 +33,8 @@ const initialNodes = [
     type: 'careerNode',
     position: { x: 50, y: 550 },
     data: {
-      jobTitle: 'Data Analyst',
-      jobDescription:
-        'Coordinates product development to align with market needs.',
+      jobTitle: 'SEO Specialist',
+      jobDescription: `Uses research to improve a website's ranking in search engine results`,
       timeline: '2-3 months',
       salary: '$59k - $77k',
       difficulty: 'Low',
@@ -229,7 +228,7 @@ export default function Start() {
           <h1 className='text-center text-5xl mb-5 font-bold'>
             Tell us about yourself
           </h1>
-          <p className='mb-8 text-center text-gray-600'>
+          <p className='mb-8 text-center text-gray-600 max-w-3xl'>
             Upload your resume to get started and add any extra context below.
             We'll analyze your resume along with the interests you provide and
             provide you with a personalized career path.

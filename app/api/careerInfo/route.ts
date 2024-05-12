@@ -46,7 +46,10 @@ export async function POST(request: NextRequest) {
 
   const careerInfo = chatCompletion.choices[0].message.content;
 
-  console.log({ careerInfo });
+  const careerInfoJSON = JSON.parse(careerInfo!);
+
+  // for (let career of careerInfoJSON) {
+  // }
 
   return new Response(JSON.stringify(careerInfo), {
     status: 200,
