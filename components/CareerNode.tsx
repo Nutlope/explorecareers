@@ -8,7 +8,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 
 type CareerNodeProps = {
   jobTitle?: string;
@@ -70,7 +69,7 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
             <div className='flex items-center gap-3'>
               <span className='text-2xl'>SEO Specialist</span>
               <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm'>
-                1 - 3 months
+                2 - 3 months
               </span>
               <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm'>
                 $59k - 81k
@@ -107,9 +106,20 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
                 Why it's a good fit
               </h2>
               <ul className='list-disc'>
-                <li>Creativity: Possess creative capabilities,</li>
-                <li>Creativity: Possess creative capabilities,</li>
-                <li>Creativity: Possess creative capabilities,</li>
+                <li>
+                  You have experience with SQL and enjoy working with data
+                </li>
+                <li>
+                  You want to work remotely and have a flexible schedule to take
+                  care of your 6 kids
+                </li>
+                <li>
+                  Your technical background as a developer will be valuable in
+                  understanding data structures and algorithms
+                </li>
+                <li>
+                  SEO is a field with high demand and opportunities for growth
+                </li>
               </ul>
             </div>
           </div>
@@ -119,19 +129,19 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
               <div className='flex gap-3'>
                 <div className='font-light'>Weeks 1-4:</div>
                 <div>
-                  Prepare your resume and start applying for SEO Specialist
-                  positions. Leverage your portfolio to showcase your expertise.
+                  Take online courses to learn SEO tools like Google Analytics,
+                  SEMrush, and Ahrefs
                 </div>
               </div>
               <div className='flex gap-3'>
-                <div className='font-light'>Weeks 1-4:</div>
+                <div className='font-light'>Weeks 5-8:</div>
                 <div>
-                  Prepare your resume and start applying for SEO Specialist
-                  positions. Leverage your portfolio to showcase your expertise.
+                  Practice working with datasets and creating reports. Use
+                  publicly available datasets to build your portfolio
                 </div>
               </div>
               <div className='flex gap-3'>
-                <div className='font-light'>Weeks 1-4:</div>
+                <div className='font-light'>Weeks 9-12:</div>
                 <div>
                   Prepare your resume and start applying for SEO Specialist
                   positions. Leverage your portfolio to showcase your expertise.

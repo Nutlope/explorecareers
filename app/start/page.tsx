@@ -227,10 +227,11 @@ export default function Start() {
       ) : (
         <div className='p-10 mt-16 flex justify-center items-center flex-col '>
           <h1 className='text-center text-5xl mb-5 font-bold'>
-            Upload your resume
+            Tell us about yourself
           </h1>
           <p className='mb-8 text-center text-gray-600'>
-            Upload your resume to get started. We'll analyze your resume and
+            Upload your resume to get started and add any extra context below.
+            We'll analyze your resume along with the interests you provide and
             provide you with a personalized career path.
           </p>
           <UploadDropzone
