@@ -10,8 +10,9 @@
 <p align="center">
   <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#tasks"><strong>Tasks</strong></a> ·
-  <a href="#inspiration"><strong>Inspiration</strong></a> ·
-  <a href="#future-tasks"><strong>Future Tasks</strong></a>
+  <a href="#architecture"><strong>Architecture</strong></a> ·
+  <a href="#future-tasks"><strong>Future Tasks</strong></a> ·
+    <a href="#inspiration"><strong>Inspiration</strong></a>
 </p>
 <br/>
 
@@ -24,6 +25,12 @@
 - Next.js [App Router](https://nextjs.org/docs/app) for the framework
 - [Vercel](https://vercel.com/) for hosting
 - [Tailwind CSS](https://tailwindcss.com/) for styling
+
+## Architecture
+
+Here's the architecture for this app.
+
+<img alt="Explore Careers." src="./public/architecture.png">
 
 ## Tasks
 
@@ -41,7 +48,6 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [ ] Figure out how to set nodes dynamically in React flow from the backend
 - [ ] Combine two groq endpoints into one so one can return a big object for everything that's needed
 - [ ] Test full end to end flow and fix any issues, including on prod
-- [ ] Make architecture diagram and add it to the slides, & edit future work
 
 ## Future tasks
 
