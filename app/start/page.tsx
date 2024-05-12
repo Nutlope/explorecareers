@@ -160,7 +160,7 @@ const initialEdges = [
 ];
 
 export default function Start() {
-  const [name, setName] = useState('');
+  const [_, setName] = useState('');
   const [url, setUrl] = useState('');
   const [nodes, setNodes, onNodesChange] = useNodesState(
     initialNodes as Node[]
@@ -172,11 +172,10 @@ export default function Start() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log('parsedResume', parsedResume);
-    console.log('careerInfo', careerInfo);
+    // Do some setNodes stuff here
   }, [parsedResume, careerInfo]);
 
-  console.log({ name, url, parsedResume });
+  console.log({ url, parsedResume, careerInfo });
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -193,7 +192,7 @@ export default function Start() {
       body: JSON.stringify({ resumeUrl: url }),
     });
     let data = await response.json();
-    setParsedResume(data.normalizedText);
+    setParsedResume(data);
 
     let response2 = await fetch('/api/getCareers', {
       method: 'POST',
@@ -201,12 +200,12 @@ export default function Start() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        resumeInfo: data.normalizedText,
+        resumeInfo: data,
         context: additionalContext,
       }),
     });
     let data2 = await response2.json();
-    setCareerInfo(data2.careers);
+    setCareerInfo(data2);
     setLoading(false);
   }
 

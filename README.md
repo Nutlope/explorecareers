@@ -26,12 +26,6 @@
 - [Vercel](https://vercel.com/) for hosting
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 
-## Architecture
-
-Here's the architecture for this app.
-
-<img alt="Explore Careers." src="./public/architecture.png">
-
 ## Tasks
 
 This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
@@ -45,9 +39,15 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
 - [x] Add another Groq endpoint to generate things for each specific job modal
 - [x] Code modal that provides a plan for how to transition to each career
+- [x] Test full end to end flow and fix any issues, including on prod
 - [ ] Figure out how to set nodes dynamically in React flow from the backend
 - [ ] Combine two groq endpoints into one so one can return a big object for everything that's needed
-- [ ] Test full end to end flow and fix any issues, including on prod
+
+## Architecture
+
+Here's the architecture for this app.
+
+<img alt="Explore Careers." src="./public/architecture.png">
 
 ## Future tasks
 
