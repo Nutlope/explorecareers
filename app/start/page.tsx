@@ -4,7 +4,7 @@ import CareerNode from '@/components/CareerNode';
 import { uploaderOptions } from '@/lib/utils';
 import { UrlBuilder } from '@bytescale/sdk';
 import { UploadDropzone } from '@bytescale/upload-widget-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ReactFlow, {
   Controls,
   addEdge,
@@ -13,6 +13,8 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import type { Node, NodeTypes } from 'reactflow';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 const nodeTypes = {
   careerNode: CareerNode,
@@ -159,10 +161,18 @@ const initialEdges = [
 export default function Start() {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
-  const [nodes, , onNodesChange] = useNodesState(initialNodes as Node[]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(
+    initialNodes as Node[]
+  );
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [parsedResume, setParsedResume] = useState('aa');
+  const [parsedResume, setParsedResume] = useState('');
   const [careerInfo, setCareerInfo] = useState([]);
+  const [additionalContext, setAdditionalContext] = useState('');
+
+  useEffect(() => {
+    console.log('parsedResume', parsedResume);
+    console.log('careerInfo', careerInfo);
+  }, [parsedResume, careerInfo]);
 
   console.log({ name, url, parsedResume });
 
@@ -210,10 +220,10 @@ export default function Start() {
         </div>
       ) : (
         <div className='p-10 mt-20 flex justify-center items-center flex-col '>
-          <h1 className='text-center text-5xl mb-20 font-bold'>
+          <h1 className='text-center text-5xl mb-5 font-bold'>
             Upload your resume
           </h1>
-          <p>
+          <p className='mb-8 text-center text-gray-600'>
             Upload your resume to get started. We'll analyze your resume and
             provide you with a personalized career path.
           </p>
@@ -232,9 +242,23 @@ export default function Start() {
               }
             }}
             onComplete={parsePdf}
-            width='670px'
+            width='695px'
             height='350px'
           />
+          {/* Textarea for providing context */}
+          <Textarea
+            placeholder='Describe more about your career goals, interests, and passions. This will help us match you with the right job paths.'
+            value={additionalContext}
+            onChange={(e) => setAdditionalContext(e.target.value)}
+            className='mt-5 max-w-2xl text-base'
+            rows={6}
+          />
+          <Button
+            onClick={() => console.log('button clicked')}
+            className='mt-10 text-base px-5 py-7'
+          >
+            Find your ideal career
+          </Button>
         </div>
       )}
     </div>
