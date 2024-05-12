@@ -11,11 +11,11 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Use PDF parsing logic & add it as context along with the form data
 - [x] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
 - [x] Add Groq endpoint that takes in a user's info & outputs job summaries.
-- [ ] Add loading state that goes between resume upload & showing the final list of careers
+- [x] Add loading state that goes between resume upload & showing the final list of careers
 
 ## v1 – add more info in modal w/ extra call + more context of what the user wants
 
-- [ ] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
+- [x] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
 - [ ] Code modal that provides a plan for how to transition to each career
 - [ ] Add another Groq endpoint to generate things for each specific job modal
 - [ ] Present at the hackathon for now

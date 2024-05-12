@@ -8,13 +8,14 @@ const groq = new OpenAI({
 
 interface PDFParseRequest {
   resumeInfo: string;
+  context: string;
 }
 
 export async function POST(request: NextRequest) {
-  const { resumeInfo } = (await request.json()) as PDFParseRequest;
+  const { resumeInfo, context } = (await request.json()) as PDFParseRequest;
 
   const prompt = `
-  Give me 6 career paths that the following user could transition into based on their resume. Respond like this in JSON: {jobTitle: string, jobDescription: string, timeline: string, salary: string, difficulty: string}.
+  Give me 6 career paths that the following user could transition into based on their resume and any additional context. Respond like this in JSON: {jobTitle: string, jobDescription: string, timeline: string, salary: string, difficulty: string}.
 
   <example>
   [
@@ -59,6 +60,10 @@ export async function POST(request: NextRequest) {
   <resume>
   ${resumeInfo}
   </resume>
+
+  <additionalContext>
+  ${context}
+  </additionalContext>
 
 ONLY respond with JSON, nothing else.
   `;

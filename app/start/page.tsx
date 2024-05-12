@@ -15,6 +15,7 @@ import 'reactflow/dist/style.css';
 import type { Node, NodeTypes } from 'reactflow';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import LoadingDots from '@/components/ui/loadingdots';
 
 const nodeTypes = {
   careerNode: CareerNode,
@@ -168,6 +169,7 @@ export default function Start() {
   const [parsedResume, setParsedResume] = useState('');
   const [careerInfo, setCareerInfo] = useState([]);
   const [additionalContext, setAdditionalContext] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log('parsedResume', parsedResume);
@@ -182,6 +184,7 @@ export default function Start() {
   );
 
   async function parsePdf() {
+    setLoading(true);
     let response = await fetch('/api/parsePdf', {
       method: 'POST',
       headers: {
@@ -197,15 +200,19 @@ export default function Start() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ resumeInfo: data.normalizedText }),
+      body: JSON.stringify({
+        resumeInfo: data.normalizedText,
+        context: additionalContext,
+      }),
     });
     let data2 = await response2.json();
     setCareerInfo(data2.careers);
+    setLoading(false);
   }
 
   return (
     <div>
-      {parsedResume ? (
+      {careerInfo.length !== 0 ? (
         <div className='w-screen h-[1200px] mx-auto'>
           <ReactFlow
             nodes={nodes}
@@ -219,7 +226,7 @@ export default function Start() {
           </ReactFlow>
         </div>
       ) : (
-        <div className='p-10 mt-20 flex justify-center items-center flex-col '>
+        <div className='p-10 mt-16 flex justify-center items-center flex-col '>
           <h1 className='text-center text-5xl mb-5 font-bold'>
             Upload your resume
           </h1>
@@ -241,23 +248,23 @@ export default function Start() {
                 setUrl(fileUrl);
               }
             }}
-            onComplete={parsePdf}
+            onComplete={() => console.log('upload complete')}
             width='695px'
             height='350px'
           />
-          {/* Textarea for providing context */}
           <Textarea
-            placeholder='Describe more about your career goals, interests, and passions. This will help us match you with the right job paths.'
+            placeholder='Describe more about your career goals, interests, and passions. This will help us match you with the right job paths (optional)'
             value={additionalContext}
             onChange={(e) => setAdditionalContext(e.target.value)}
-            className='mt-5 max-w-2xl text-base'
+            className='mt-5 max-w-2xl text-base border border-gray-400'
             rows={6}
           />
-          <Button
-            onClick={() => console.log('button clicked')}
-            className='mt-10 text-base px-5 py-7'
-          >
-            Find your ideal career
+          <Button onClick={parsePdf} className='mt-10 text-base px-5 py-7 w-60'>
+            {loading ? (
+              <LoadingDots style='big' color='white' />
+            ) : (
+              'Find your ideal career'
+            )}
           </Button>
         </div>
       )}
