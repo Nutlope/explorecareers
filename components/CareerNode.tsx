@@ -39,7 +39,15 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
         </div>
         <div className='flex justify-between'>
           <div className='font-light'>DIFFICULTY:</div>
-          <div className='font-semibold text-green-600 text-lg'>
+          <div
+            className={`font-semibold ${
+              difficulty?.toLowerCase() == 'low'
+                ? 'text-green-600'
+                : difficulty?.toLowerCase() == 'high'
+                ? 'text-red-600'
+                : 'text-orange-600'
+            } text-lg`}
+          >
             {difficulty}
           </div>
         </div>

@@ -7,7 +7,6 @@ import { UploadDropzone } from '@bytescale/upload-widget-react';
 import { useCallback, useState } from 'react';
 import ReactFlow, {
   Controls,
-  MiniMap,
   addEdge,
   useEdgesState,
   useNodesState,
@@ -19,19 +18,17 @@ const nodeTypes = {
   careerNode: CareerNode,
 } satisfies NodeTypes;
 
-const connectionLineStyle = { stroke: '#000' };
-
 const initialNodes = [
   {
     id: '1',
-    type: 'input',
-    position: { x: 500, y: 250 },
+    position: { x: 650, y: 450 },
     data: { label: 'Careers' },
+    style: { background: '#000', color: '#fff', fontSize: '20px' },
   },
   {
     id: '2',
     type: 'careerNode',
-    position: { x: 100, y: 350 },
+    position: { x: 50, y: 550 },
     data: {
       jobTitle: 'Data Analyst',
       jobDescription:
@@ -45,27 +42,27 @@ const initialNodes = [
   {
     id: '3',
     type: 'careerNode',
-    position: { x: 700, y: 350 },
+    position: { x: 1050, y: 550 },
     data: {
-      jobTitle: 'Data Analyst',
+      jobTitle: 'UX Designer',
       jobDescription:
-        'Coordinates product development to align with market needs.',
-      timeline: '2-3 months',
-      salary: '$59k - $77k',
-      difficulty: 'Low',
+        'Creates user-centered design solutions to improve product usability and user experience.',
+      timeline: '3-6 months',
+      salary: '$85k - $110k',
+      difficulty: 'Medium',
       connectPosition: 'top',
     },
   },
   {
     id: '4',
     type: 'careerNode',
-    position: { x: 100, y: 50 },
+    position: { x: 50, y: 150 },
     data: {
-      jobTitle: 'Data Analyst',
+      jobTitle: 'Digital Marketing Specialist',
       jobDescription:
-        'Coordinates product development to align with market needs.',
-      timeline: '2-3 months',
-      salary: '$59k - $77k',
+        'Develops online marketing campaigns to drive business growth.',
+      timeline: '2-4 months',
+      salary: '$50k - $70k',
       difficulty: 'Low',
       connectPosition: 'bottom',
     },
@@ -73,50 +70,90 @@ const initialNodes = [
   {
     id: '5',
     type: 'careerNode',
-    position: { x: 700, y: 50 },
+    position: { x: 1050, y: 150 },
     data: {
-      jobTitle: 'Data Analyst',
+      jobTitle: 'Software Engineer',
       jobDescription:
-        'Coordinates product development to align with market needs.',
-      timeline: '2-3 months',
-      salary: '$59k - $77k',
-      difficulty: 'Low',
+        'Designs, develops, and tests software applications to meet business needs.',
+      timeline: '6-12 months',
+      salary: '$100k - $140k',
+      difficulty: 'High',
+      connectPosition: 'bottom',
+    },
+  },
+  {
+    id: '6',
+    type: 'careerNode',
+    position: { x: 550, y: 700 },
+    data: {
+      jobTitle: 'Cybersecurity Specialist',
+      jobDescription:
+        'Protects computer systems and networks from cyber threats by developing and implementing security protocols.',
+      timeline: '6-12 months',
+      salary: '$80k - $120k',
+      difficulty: 'High',
+      connectPosition: 'top',
+    },
+  },
+  {
+    id: '7',
+    type: 'careerNode',
+    position: { x: 550, y: 0 },
+    data: {
+      jobTitle: 'Business Analyst',
+      jobDescription:
+        'Analyzes business needs and develops solutions to improve operations and processes.',
+      timeline: '3-6 months',
+      salary: '$65k - $90k',
+      difficulty: 'Medium',
       connectPosition: 'bottom',
     },
   },
 ] satisfies Node[];
 
-// const initialNodes = [
-//   { id: 'a', type: 'input', position: { x: 0, y: 0 }, data: { label: 'wire' } },
-//   {
-//     id: 'b',
-//     type: 'careerNode',
-//     position: { x: -100, y: 100 },
-//     data: {
-//       label: 'drag me!',
-//       jobTitle: 'Data Analyst',
-//       jobDescription:
-//         'Coordinates product development to align with market needs.',
-//       timeline: '2-3 months',
-//       salary: '$59k - $77k',
-//       difficulty: 'Low',
-//       connectPosition: 'bottom',
-//     },
-//   },
-//   { id: 'c', position: { x: 100, y: 100 }, data: { label: 'your ideas' } },
-//   {
-//     id: 'd',
-//     type: 'output',
-//     position: { x: 0, y: 200 },
-//     data: { label: 'with React Flow' },
-//   },
-// ] satisfies Node[];
-
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e1-3', source: '1', target: '3' },
-  { id: 'e1-4', source: '1', target: '4' },
-  { id: 'e1-5', source: '1', target: '5' },
+  {
+    id: 'e1-2',
+    source: '1',
+    target: '2',
+    animated: true,
+    style: { stroke: '#000' },
+  },
+  {
+    id: 'e1-3',
+    source: '1',
+    target: '3',
+    animated: true,
+    style: { stroke: '#000' },
+  },
+  {
+    id: 'e1-4',
+    source: '1',
+    target: '4',
+    animated: true,
+    style: { stroke: '#000' },
+  },
+  {
+    id: 'e1-5',
+    source: '1',
+    target: '5',
+    animated: true,
+    style: { stroke: '#000' },
+  },
+  {
+    id: 'e1-6',
+    source: '1',
+    target: '6',
+    animated: true,
+    style: { stroke: '#000' },
+  },
+  {
+    id: 'e1-7',
+    source: '1',
+    target: '7',
+    animated: true,
+    style: { stroke: '#000' },
+  },
 ];
 
 export default function Start() {
@@ -124,7 +161,8 @@ export default function Start() {
   const [url, setUrl] = useState('');
   const [nodes, , onNodesChange] = useNodesState(initialNodes as Node[]);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [parsedResume, setParsedResume] = useState('');
+  const [parsedResume, setParsedResume] = useState('aa');
+  const [careerInfo, setCareerInfo] = useState([]);
 
   console.log({ name, url, parsedResume });
 
@@ -143,52 +181,62 @@ export default function Start() {
     });
     let data = await response.json();
     setParsedResume(data.normalizedText);
+
+    let response2 = await fetch('/api/getCareers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ resumeInfo: data.normalizedText }),
+    });
+    let data2 = await response2.json();
+    setCareerInfo(data2.careers);
   }
 
   return (
-    <div className='p-10 mt-20 flex justify-center items-center flex-col '>
-      {/* {parsedResume ? ( */}
-      <div className='w-screen h-screen mx-auto'>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
-          nodeTypes={nodeTypes}
-          connectionLineStyle={connectionLineStyle}
-          fitView
-        >
-          <Controls />
-          <MiniMap />
-          {/* <Background variant='dots' gap={12} size={1} /> */}
-        </ReactFlow>
-      </div>
-      {/* ) : (
-        <>
-      <h1 className='text-center text-5xl mb-20 font-bold'>
-        Upload your resume
-      </h1>
-      <UploadDropzone
-          options={uploaderOptions}
-          onUpdate={({ uploadedFiles }) => {
-            if (uploadedFiles.length !== 0) {
-              const file = uploadedFiles[0];
-              const fileName = file.originalFile.file.name;
-              const fileUrl = UrlBuilder.url({
-                accountId: file.accountId,
-                filePath: file.filePath,
-              });
-              setName(fileName);
-              setUrl(fileUrl);
-            }
-          }}
-          onComplete={parsePdf}
-          width='670px'
-          height='350px'
-        />
-        </>
-      )} */}
+    <div>
+      {parsedResume ? (
+        <div className='w-screen h-[1200px] mx-auto'>
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+            nodeTypes={nodeTypes}
+          >
+            <Controls />
+          </ReactFlow>
+        </div>
+      ) : (
+        <div className='p-10 mt-20 flex justify-center items-center flex-col '>
+          <h1 className='text-center text-5xl mb-20 font-bold'>
+            Upload your resume
+          </h1>
+          <p>
+            Upload your resume to get started. We'll analyze your resume and
+            provide you with a personalized career path.
+          </p>
+          <UploadDropzone
+            options={uploaderOptions}
+            onUpdate={({ uploadedFiles }) => {
+              if (uploadedFiles.length !== 0) {
+                const file = uploadedFiles[0];
+                const fileName = file.originalFile.file.name;
+                const fileUrl = UrlBuilder.url({
+                  accountId: file.accountId,
+                  filePath: file.filePath,
+                });
+                setName(fileName);
+                setUrl(fileUrl);
+              }
+            }}
+            onComplete={parsePdf}
+            width='670px'
+            height='350px'
+          />
+        </div>
+      )}
     </div>
   );
 }
