@@ -9,10 +9,12 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Code up a landing page, use PDFToChat/QRGPT as inspo
 - [x] Dashboard screen with upload functionality using Bytescale
 - [x] Use PDF parsing logic & add it as context along with the form data
-- [ ] Multi-step form where people can add their interests
-- [ ] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
+- [x] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
 - [ ] Modal that provides a plan for how to transition to each career
 - [ ] Test end-to-end flow and make sure it works properly
+- [ ] Add Multi-step form where people can add their interests and add this to the prompt
+- [ ] Check out Groq and how it does here
+- [ ] Use Crew AI agents to make this workflow more robust overall: An agent that takes resume & extra info then outputs a very nice summary with keywords. An agent that comes up with multiple possible career paths from that summary. An agent that then constructs a plan for each career.
 - [ ] Fine-tune Llama-3-8B on making the job plan. Maybe fine-tune Llama-3-8B on GPT-4 outputs
 
 ## v2 (stretch)

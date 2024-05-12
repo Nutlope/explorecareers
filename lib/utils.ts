@@ -19,3 +19,17 @@ export function normalizeText(input: string): string {
   // Trim leading/trailing whitespace
   return normalized.trim();
 }
+
+export const uploaderOptions = {
+  apiKey: !!process.env.NEXT_PUBLIC_BYTESCALE_API_KEY
+    ? process.env.NEXT_PUBLIC_BYTESCALE_API_KEY
+    : 'free',
+  maxFileCount: 1,
+  mimeTypes: ['application/pdf'],
+  editor: { images: { crop: false } },
+  styles: {
+    colors: {
+      primary: '#000',
+    },
+  },
+};
