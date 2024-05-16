@@ -2,8 +2,11 @@ import { NextRequest } from 'next/server';
 import OpenAI from 'openai';
 
 const together = new OpenAI({
-  baseURL: 'https://api.together.xyz/v1',
-  apiKey: process.env['TOGETHER_API_KEY'],
+  baseURL: 'https://together.hconeai.com/v1',
+  apiKey: process.env.TOGETHER_API_KEY,
+  defaultHeaders: {
+    'Helicone-Auth': `Bearer ${process.env.HELICONE_API_KEY}`,
+  },
 });
 
 interface GetCareersRequest {

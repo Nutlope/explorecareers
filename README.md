@@ -30,11 +30,11 @@ This app lets people upload their resumes, fill in some of their interests, and 
 ## Tasks
 
 - [ ] Fix bug with the modal info not populating correctly
-- [ ] Add observability with helicone
 - [ ] Paralllize the LLM calls for faster results
 
 ## Future tasks
 
+- [ ] Improve the prompts using GPT-4o for the examples that I specify
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Add rate limiting with Redis Upstash
 - [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
