@@ -8,17 +8,26 @@ const Footer = () => (
             href='https://twitter.com/nutlope'
             className='hover:underline transition'
           >
-            Hassan (@nutlope)
+            Hassan
+          </a>{' '}
+          and{' '}
+          <a
+            href='https://twitter.com/youssefuiux'
+            className='hover:underline transition'
+          >
+            Youssef
           </a>
           .{' '}
         </p>
         <div className='flex items-center gap-x-6 text-gray-400'>
           <a
             className='tracking-tight flex gap-1 hover:text-gray-700 hover:border-slate-300 transition'
-            // href='https://www.together.ai/'
+            href='https://www.together.ai/'
             target='_blank'
           >
-            <span className='text-gray-500'>Built with Llama-3 and Groq.</span>
+            <span className='text-gray-500'>
+              Powered by Together.ai and Llama-3.
+            </span>
           </a>
         </div>
       </div>

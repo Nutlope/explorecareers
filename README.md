@@ -4,13 +4,12 @@
 </a>
 
 <p align="center">
-  Explore careers relevant for you in seconds. Powered by LLama-3.
+  Explore careers relevant for you in seconds. Powered by Together.ai.
 </p>
 
 <p align="center">
   <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#tasks"><strong>Tasks</strong></a> ·
-  <a href="#architecture"><strong>Architecture</strong></a> ·
   <a href="#future-tasks"><strong>Future Tasks</strong></a> ·
     <a href="#inspiration"><strong>Inspiration</strong></a>
 </p>
@@ -20,7 +19,7 @@
 
 ## Tech Stack
 
-- Llama-3 through [Groq](https://groq.com/) for LLM inference
+- Llama-3 through [Together.ai](https://together.ai/) for LLM inference
 - [S3 / ByteScale](https://www.bytescale.com/) for the PDF storage
 - Next.js [App Router](https://nextjs.org/docs/app) for the framework
 - [Vercel](https://vercel.com/) for hosting
@@ -34,24 +33,21 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Dashboard screen with upload functionality using Bytescale
 - [x] Use PDF parsing logic & add it as context along with the form data
 - [x] Possible careers page built with reactflow.dev with timeline, average salary, & difficulty level
-- [x] Add Groq endpoint that takes in a user's info & outputs job summaries.
+- [x] Add llama-3 endpoint that takes in a user's info & outputs job summaries.
 - [x] Add loading state that goes between resume upload & showing the final list of careers
 - [x] Add a text box right next to the resume to add context on interests & likes/dislikes, then add this to context
-- [x] Add another Groq endpoint to generate things for each specific job modal
+- [x] Add another llama-3 endpoint to generate things for each specific job modal
 - [x] Code modal that provides a plan for how to transition to each career
 - [x] Test full end to end flow and fix any issues, including on prod
-- [ ] Figure out how to set nodes dynamically in React flow from the backend
-- [ ] Combine two groq endpoints into one so one can return a big object for everything that's needed
-
-## Architecture
-
-Here's the architecture for this app.
-
-<img alt="Explore Careers." src="./public/architecture.png">
+- [x] Figure out how to set nodes dynamically in React flow from the backend
+- [x] Combine two API calls into one so one can return a big object for everything that's needed
+- [ ] Troubleshoot two API calls not working
+- [ ] Paralllize all the LLM calls
+- [ ] Migrate to Together.ai
+- [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 
 ## Future tasks
 
-- [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 - [ ] Add observability with helicone for this app to try out something new
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Add rate limiting with Redis Upstash
