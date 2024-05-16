@@ -16,6 +16,7 @@ import type { Node, NodeTypes } from 'reactflow';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import LoadingDots from '@/components/ui/loadingdots';
+import { finalCareerInfo } from '@/lib/types';
 
 const nodeTypes = {
   careerNode: CareerNode,
@@ -166,7 +167,7 @@ export default function Start() {
   );
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [parsedResume, setParsedResume] = useState('');
-  const [careerInfo, setCareerInfo] = useState([]);
+  const [careerInfo, setCareerInfo] = useState<finalCareerInfo[]>([]);
   const [additionalContext, setAdditionalContext] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -223,7 +224,7 @@ export default function Start() {
       }),
     });
     let data2 = await response2.json();
-    setCareerInfo(JSON.parse(data2));
+    setCareerInfo(data2);
     setLoading(false);
   }
 

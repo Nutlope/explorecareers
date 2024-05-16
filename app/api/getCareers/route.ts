@@ -1,21 +1,20 @@
 import { NextRequest } from 'next/server';
 import OpenAI from 'openai';
-import fs from 'fs';
 
-const groq = new OpenAI({
-  baseURL: 'https://api.groq.com/openai/v1',
-  apiKey: process.env['GROQ_API_KEY'],
+const together = new OpenAI({
+  baseURL: 'https://api.together.xyz/v1',
+  apiKey: process.env['TOGETHER_API_KEY'],
 });
 
-interface PDFParseRequest {
+interface GetCareersRequest {
   resumeInfo: string;
   context: string;
 }
 
 export async function POST(request: NextRequest) {
-  const { resumeInfo, context } = (await request.json()) as PDFParseRequest;
+  const { resumeInfo, context } = (await request.json()) as GetCareersRequest;
 
-  const prompt = `
+  const careerPathPrompt = `
   Give me 6 career paths that the following user could transition into based on their resume and any additional context. Respond like this in JSON: {jobTitle: string, jobDescription: string, timeline: string, salary: string, difficulty: string}.
 
   <example>
@@ -69,31 +68,32 @@ export async function POST(request: NextRequest) {
 ONLY respond with JSON, nothing else.
   `;
 
-  const chatCompletion = await groq.chat.completions.create({
+  const chatCompletion = await together.chat.completions.create({
     messages: [
       {
         role: 'system',
         content: 'You are a helpful career expert that ONLY responds in JSON.',
       },
-      { role: 'user', content: prompt },
+      { role: 'user', content: careerPathPrompt },
     ],
-    model: 'llama3-70b-8192',
+    model: 'meta-llama/Llama-3-70b-chat-hf',
   });
   const careers = chatCompletion.choices[0].message.content;
 
   const careerInfoJSON = JSON.parse(careers!);
   console.log('old career info', careerInfoJSON);
+
   for (let i = 0; i < careerInfoJSON.length; i++) {
-    const completion = await groq.chat.completions.create({
+    const completion = await together.chat.completions.create({
       messages: [
-        // {
-        //   role: 'system',
-        //   content:
-        //     'You are a helpful career expert that ONLY responds in JSON.',
-        // },
+        {
+          role: 'system',
+          content:
+            'You are a helpful career expert that ONLY responds in JSON.',
+        },
         {
           role: 'user',
-          content: ` You are helping a person transition into the ${careerInfoJSON[0].jobTitle} role. Given the context about the person, return more information about the ${careerInfoJSON[0].jobTitle} role in JSON as follows: {workedRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
+          content: `You are helping a person transition into the ${careerInfoJSON[0].jobTitle} role. Given the context about the person, return more information about the ${careerInfoJSON[0].jobTitle} role in JSON as follows: {workRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
 
         <example>
         {role: "SEO specialist", workRequired: "10-20 hrs/week", whyItsagoodfit: ["You want to do remote work and this is a good remote job"...], aboutTheRole: "SEO Specialists optimize websites to rank higher in search engine results, aiming to increase online visibility, drive organic traffic, and improve user engagement. They conduct keyword research, analyze competitors, and implement SEO strategies that include on-page optimization, link building, and content creation.", roadmap: [{"Weeks 1-4": "Prepare your resume and start applying for SEO Specialist positions. Leverage your portfolio to showcase your expertise."}, ...]
@@ -107,7 +107,7 @@ ONLY respond with JSON, nothing else.
         ONLY respond with JSON, nothing else.`,
         },
       ],
-      model: 'llama3-70b-8192',
+      model: 'meta-llama/Llama-3-70b-chat-hf',
     });
     const specificCareer = completion.choices[0].message.content;
     const specificCareerJSON = JSON.parse(specificCareer!);
@@ -116,13 +116,8 @@ ONLY respond with JSON, nothing else.
     careerInfoJSON[i] = { ...careerInfoJSON[i], ...specificCareerJSON };
   }
 
-  fs.writeFileSync('careerInfo.json', JSON.stringify(careerInfoJSON, null, 4));
-
   console.log('new career info', careerInfoJSON);
-  return (
-    new Response(JSON.parse(careerInfoJSON)),
-    {
-      status: 200,
-    }
-  );
+  return new Response(JSON.stringify(careerInfoJSON), {
+    status: 200,
+  });
 }

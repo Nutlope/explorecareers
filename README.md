@@ -41,9 +41,11 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [x] Test full end to end flow and fix any issues, including on prod
 - [x] Figure out how to set nodes dynamically in React flow from the backend
 - [x] Combine two API calls into one so one can return a big object for everything that's needed
-- [ ] Troubleshoot two API calls not working
+- [x] Migrate to Together.ai
+- [x] Troubleshoot two API calls not working
+- [x] Make the modal nicer
+- [ ] Fix bug with the modal info not populating correctly
 - [ ] Paralllize all the LLM calls
-- [ ] Migrate to Together.ai
 - [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 
 ## Future tasks

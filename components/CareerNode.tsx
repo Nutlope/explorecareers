@@ -4,10 +4,12 @@ import type { NodeProps } from 'reactflow';
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Button } from './ui/button';
 
 type CareerNodeProps = {
   jobTitle?: string;
@@ -17,6 +19,10 @@ type CareerNodeProps = {
   difficulty?: string;
   connectPosition?: string;
   label?: string;
+  workRequired?: string;
+  aboutTheRole?: string;
+  whyItsagoodfit?: string[];
+  roadmap?: { [key: string]: string }[];
 };
 
 function CareerNode({ data }: NodeProps<CareerNodeProps>) {
@@ -27,6 +33,10 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
     salary,
     difficulty,
     connectPosition,
+    workRequired,
+    aboutTheRole,
+    whyItsagoodfit,
+    roadmap,
   } = data;
   const position = connectPosition === 'top' ? Position.Top : Position.Bottom;
 
@@ -63,104 +73,81 @@ function CareerNode({ data }: NodeProps<CareerNodeProps>) {
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-5xl'>
+      <DialogContent className='sm:max-w-6xl'>
         <DialogHeader>
           <DialogTitle className='flex justify-between'>
             <div className='flex items-center gap-3'>
-              <span className='text-2xl'>SEO Specialist</span>
+              <span className='text-2xl'>{jobTitle ?? 'SEO Specialist'}</span>
               <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm'>
-                2 - 3 months
+                {timeline}
               </span>
               <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm'>
-                $59k - 81k
+                {salary}
               </span>
-              <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm text-green-600'>
-                Low
+              <span
+                className={`border rounded-3xl border-gray-200 px-3 py-1 text-sm font-semibold ${
+                  difficulty?.toLowerCase() == 'low'
+                    ? 'text-green-600'
+                    : difficulty?.toLowerCase() == 'high'
+                    ? 'text-red-600'
+                    : 'text-orange-600'
+                } text-lg`}
+              >
+                {difficulty}
               </span>
             </div>
             <div className='flex items-center gap-3 mr-5'>
               <div className='font-bold'>Work Required:</div>
               <span className='border rounded-3xl border-gray-200 px-3 py-1 text-sm'>
-                10-20 hrs/week
+                {workRequired ?? '10-20 hrs/week'}
               </span>
             </div>
           </DialogTitle>
         </DialogHeader>
-        <div className='flex gap-7'>
-          <div className='flex flex-col gap-4 w-1/2'>
+        <div className='flex gap-7 border-t border-black pt-6'>
+          <div className='flex flex-col gap-4 w-2/5'>
             <div>
               <h2 className='text-lg font-semibold mb-2'>
-                What's an SEO specialist?
+                What's a {jobTitle}?
               </h2>
               <p>
-                SEO Specialists optimize websites to rank higher in search
+                {aboutTheRole ??
+                  `SEO Specialists optimize websites to rank higher in search
                 engine results, aiming to increase online visibility, drive
                 organic traffic, and improve user engagement. They conduct
                 keyword research, analyze competitors, and implement SEO
                 strategies that include on-page optimization, link building, and
-                content creation.
+                content creation.`}
               </p>
             </div>
             <div>
-              <h2 className='text-lg font-semibold mb-2'>
+              <h2 className='text-lg font-semibold mb-2 mt-6'>
                 Why it's a good fit
               </h2>
               <ul className='list-disc ml-4'>
-                <li>
-                  You have experience with SQL and enjoy working with data
-                </li>
-                <li>
-                  You want to work remotely and have a flexible schedule to take
-                  care of your 6 kids
-                </li>
-                <li>
-                  Your technical background as a developer will be valuable in
-                  understanding data structures and algorithms
-                </li>
-                <li>
-                  SEO is a field with high demand and opportunities for growth
-                </li>
+                {whyItsagoodfit?.map((reason, index) => (
+                  <li key={index}>{reason}</li>
+                ))}
               </ul>
             </div>
           </div>
-          <div className='w-1/2'>
+          <div className='w-3/5'>
             <h2 className='text-lg font-semibold mb-2'>Roadmap</h2>
             <div className='flex flex-col gap-2'>
-              <div className='flex gap-3'>
-                <div className='font-light'>Weeks 1-4:</div>
-                <div>
-                  Take online courses to learn SEO tools like Google Analytics,
-                  SEMrush, and Ahrefs
+              {roadmap?.map((step, index) => (
+                <div key={index} className='flex gap-3'>
+                  <div className='font-light min-w-28'>
+                    {Object.keys(step)[0]}:
+                  </div>
+                  <div>{Object.values(step)[0]}</div>
                 </div>
-              </div>
-              <div className='flex gap-3'>
-                <div className='font-light'>Weeks 5-8:</div>
-                <div>
-                  Practice working with datasets and creating reports. Use
-                  publicly available datasets to build your portfolio
-                </div>
-              </div>
-              <div className='flex gap-3'>
-                <div className='font-light'>Weeks 9-12:</div>
-                <div>
-                  Prepare your resume and start applying for SEO Specialist
-                  positions. Leverage your portfolio to showcase your expertise.
-                </div>
-              </div>
-              <div className='flex gap-3'>
-                <div className='font-light'>Weeks 13-18:</div>
-                <div>
-                  Continuously learn new tools and techniques to stay up-to-date
-                  in the field. Network with other data analysts to learn about
-                  new opportunities and best practices.
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
-        {/* <DialogFooter>
+        <DialogFooter>
           <Button type='submit'>Save changes</Button>
-        </DialogFooter> */}
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
