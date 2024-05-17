@@ -286,7 +286,11 @@ export default function Start() {
             className='mt-5 max-w-2xl text-base border border-gray-400 focus:border-black'
             rows={6}
           />
-          <Button onClick={parsePdf} className='mt-10 text-base px-5 py-7 w-60'>
+          <Button
+            onClick={parsePdf}
+            className='mt-10 text-base px-5 py-7 w-60'
+            disabled={url ? false : true}
+          >
             {loading ? (
               <LoadingDots style='big' color='white' />
             ) : (
