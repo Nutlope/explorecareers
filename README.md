@@ -18,13 +18,15 @@
 
 This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
 
-- Llama-3 through [Together.ai](https://together.ai/) for LLM inference
-- [S3 / ByteScale](https://www.bytescale.com/) for the PDF storage
-- Next.js [App Router](https://nextjs.org/docs/app) for the framework
-- [Vercel](https://vercel.com/) for hosting & analytics
-- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Llama-3-70B](https://llama.meta.com/llama3/) for the LLM
+- [Together.ai](https://together.ai/) for the AI API (inference)
+- [Plausible](https://plausible.io/) for website analytics
 - [Reactflow](https://reactflow.dev/) for the data visualization
 - [Helicone](https://helicone.ai/) for LLM observability
+- Next.js [App Router](https://nextjs.org/docs/app) for the framework
+- [S3 / ByteScale](https://www.bytescale.com/) for the PDF storage
+- [Vercel](https://vercel.com/) for hosting & functions
+- [Tailwind CSS](https://tailwindcss.com/) for styling
 
 ## Future tasks
 
@@ -45,4 +47,4 @@ This app lets people upload their resumes, fill in some of their interests, and 
 
 ## Inspiration
 
-I took inspiration from [wanderer.space](https://www.wanderer.space) for this app.
+I took inspiration from [wanderer.space](https://www.wanderer.space) for this app. Check it out for a production version of what I built with even more features!
