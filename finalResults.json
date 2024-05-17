@@ -1,0 +1,167 @@
+[
+  {
+    "jobTitle": "Technical Program Manager",
+    "jobDescription": "Leads cross-functional teams to develop and launch technical products and features.",
+    "timeline": "3-6 months",
+    "salary": "$120k - $150k",
+    "difficulty": "High",
+    "workRequired": "30-40 hrs/week",
+    "aboutTheRole": "Technical Program Managers (TPMs) lead cross-functional teams to develop and deliver complex technical projects. They bridge the gap between technical and non-technical stakeholders, defining project scope, timelines, and resources. TPMs ensure projects are delivered on time, within budget, and meet business objectives.",
+    "whyItsagoodfit": [
+      "You have a strong technical background as a Senior Developer Advocate and Software Engineer, which will help you communicate effectively with technical teams.",
+      "Your experience in leading and educating developer communities will be valuable in leading cross-functional teams.",
+      "Your project management skills, demonstrated through your startup experience, will be essential in delivering complex technical projects."
+    ],
+    "roadmap": [
+      {
+        "Weeks 1-4": "Take online courses to learn about project management methodologies, such as Agile and Scrum."
+      },
+      {
+        "Weeks 5-8": "Network with current TPMs to learn about their experiences and gain insights into the role."
+      },
+      {
+        "Weeks 9-12": "Update your resume and LinkedIn profile to highlight your technical and project management skills."
+      },
+      {
+        "Weeks 13-16": "Start applying for TPM positions and prepare for technical and behavioral interviews."
+      },
+      {
+        "Weeks 17-20": "Continue to build your network and learn from TPMs in the industry."
+      },
+      {
+        "After 20 weeks": "Land a TPM role and continue to develop your skills and experience in the field."
+      }
+    ]
+  },
+  {
+    "jobTitle": "AI/ML Engineer",
+    "jobDescription": "Designs and develops artificial intelligence and machine learning models to solve complex problems.",
+    "timeline": "6-12 months",
+    "salary": "$140k - $170k",
+    "difficulty": "High",
+    "workRequired": "20-30 hrs/week",
+    "aboutTheRole": "AI/ML Engineers design and develop artificial intelligence and machine learning systems that can perform tasks that typically require human intelligence, such as visual perception, speech recognition, and decision-making. They work on building predictive models, natural language processing, and computer vision applications, and deploy them to production environments.",
+    "whyItsagoodfit": [
+      "You have a strong background in computer engineering and software development, which is essential for AI/ML engineering.",
+      "Your experience with Next.js, React, and JavaScript can be leveraged to build AI-powered web applications.",
+      "Your passion for AI and ML is evident from your projects, such as RoomGPT and AI Commits, which demonstrates your ability to apply AI/ML concepts to real-world problems."
+    ],
+    "roadmap": [
+      {
+        "Weeks 1-4": "Take online courses to learn the fundamentals of machine learning and deep learning, such as Andrew Ng's Machine Learning course on Coursera."
+      },
+      {
+        "Weeks 5-8": "Build and deploy a simple machine learning model using TensorFlow or PyTorch, and integrate it with a web application."
+      },
+      {
+        "Weeks 9-12": "Read research papers on AI/ML and implement a project that applies AI/ML to a real-world problem, such as image classification or natural language processing."
+      },
+      {
+        "Weeks 13-16": "Network with AI/ML professionals and attend conferences or meetups to learn about the latest developments in the field."
+      },
+      {
+        "Weeks 17-20": "Prepare for AI/ML engineer interviews by practicing coding challenges and reviewing data structures and algorithms."
+      },
+      {
+        "After 20 weeks": "Apply for AI/ML engineer positions and leverage your portfolio and network to land a job in the field."
+      }
+    ]
+  },
+  {
+    "jobTitle": "Cloud Architect",
+    "jobDescription": "Designs and builds scalable, secure, and efficient cloud computing systems.",
+    "timeline": "6-12 months",
+    "salary": "$150k - $180k",
+    "difficulty": "High",
+    "workRequired": "20-30 hrs/week",
+    "aboutTheRole": "Cloud Architects design and build cloud computing systems for organizations, ensuring scalability, security, and efficiency. They assess business requirements, develop cloud strategies, and implement cloud infrastructure, applications, and services. They also ensure compliance with industry standards and best practices.",
+    "whyItsagoodfit": [
+      "Your experience as a Senior Developer Advocate and Software Engineer has provided you with a strong foundation in cloud technologies, such as Next.js, Vercel, and AWS Lambda.",
+      "Your skills in Python, JavaScript, and TypeScript will be valuable in designing and implementing cloud architectures.",
+      "Your experience in leading and educating developer communities will be beneficial in communicating with stakeholders and team members in a Cloud Architect role."
+    ],
+    "roadmap": [
+      {
+        "Weeks 1-4": "Study cloud computing fundamentals, including AWS, Azure, and Google Cloud Platform."
+      },
+      {
+        "Weeks 5-8": "Take online courses or certifications, such as AWS Certified Solutions Architect or Google Cloud Certified - Professional Cloud Developer."
+      },
+      {
+        "Weeks 9-12": "Build personal projects or contribute to open-source projects that involve cloud architecture and deployment."
+      },
+      {
+        "Weeks 13-16": "Network with professionals in the field and attend industry events or conferences to learn about best practices and new trends."
+      },
+      {
+        "Weeks 17-20": "Prepare for technical interviews and practice whiteboarding exercises to improve your problem-solving skills."
+      },
+      {
+        "After 20 weeks": "Start applying for Cloud Architect positions and leverage your network and portfolio to showcase your expertise."
+      }
+    ]
+  },
+  null,
+  {
+    "jobTitle": "Product Manager",
+    "jobDescription": "Defines and launches new products or features, working closely with cross-functional teams.",
+    "timeline": "3-6 months",
+    "salary": "$90k - $120k",
+    "difficulty": "Medium",
+    "workRequired": "20-30 hrs/week",
+    "aboutTheRole": "Product Managers are responsible for defining and delivering products that meet customer needs and business objectives. They lead cross-functional teams, prioritize features, and make data-driven decisions to drive product success.",
+    "whyItsagoodfit": [
+      "You have a strong technical background and can effectively communicate with engineers",
+      "Your experience in developer advocacy and community building can be leveraged to understand customer needs",
+      "Your entrepreneurial spirit and experience in founding and exiting a startup can help you drive product vision and strategy"
+    ],
+    "roadmap": [
+      {
+        "Weeks 1-4": "Take online courses to learn product management fundamentals, such as Coursera's Product Management Specialization"
+      },
+      {
+        "Weeks 5-8": "Read books on product management, such as 'Inspired' by Marty Cagan and 'Play Bigger' by Christopher Lochhead"
+      },
+      {
+        "Weeks 9-12": "Network with product managers in your industry and attend product management events"
+      },
+      {
+        "Weeks 13-16": "Create a product management portfolio by working on a side project or contributing to an open-source project"
+      },
+      {
+        "Weeks 17-20": "Prepare for product management interviews by practicing common interview questions and whiteboarding exercises"
+      }
+    ]
+  },
+  {
+    "jobTitle": "Solutions Architect",
+    "jobDescription": "Designs and implements comprehensive solutions to meet business needs, often involving multiple technologies.",
+    "timeline": "6-12 months",
+    "salary": "$120k - $150k",
+    "difficulty": "High",
+    "workRequired": "20-30 hrs/week",
+    "aboutTheRole": "Solutions Architects design and implement comprehensive solutions to meet business needs, bridging the gap between business problems and technology capabilities. They analyze requirements, develop architecture designs, and ensure successful implementation of solutions, often involving cloud computing, software applications, and infrastructure.",
+    "whyItsagoodfit": [
+      "Your experience as a Senior Developer Advocate and Software Engineer has provided a strong foundation in technical skills, which are essential for a Solutions Architect role.",
+      "Your ability to communicate complex technical concepts to various audiences, as demonstrated through your videos, blog posts, and conference speaking engagements, will serve you well in this role.",
+      "Your experience in leading and educating developer communities will be valuable in collaborating with cross-functional teams and stakeholders as a Solutions Architect."
+    ],
+    "roadmap": [
+      {
+        "Weeks 1-4": "Study cloud computing platforms (AWS, Azure, GCP) and familiarize yourself with architecture design patterns."
+      },
+      {
+        "Weeks 5-8": "Take online courses or attend workshops to learn about solution architecture, such as AWS Well-Architected Framework or Microsoft Azure Architecture Center."
+      },
+      {
+        "Weeks 9-12": "Network with current Solutions Architects and attend industry events to gain insights into the role and stay updated on industry trends."
+      },
+      {
+        "After 3 months": "Start applying for Solutions Architect positions and be prepared to discuss your technical skills, architecture design experience, and ability to communicate complex concepts effectively."
+      },
+      {
+        "After 6 months": "Consider obtaining certifications, such as AWS Certified Solutions Architect or Microsoft Certified: Azure Solutions Architect Expert, to demonstrate your expertise and enhance your job prospects."
+      }
+    ]
+  }
+]

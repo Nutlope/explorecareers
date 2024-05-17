@@ -29,13 +29,14 @@ This app lets people upload their resumes, fill in some of their interests, and 
 
 ## Tasks
 
-- [ ] Fix bug with the modal info not populating correctly
-- [ ] Paralllize the LLM calls for faster results
+- [ ] Fix the one call that always returns null: DevOps engineer
 
 ## Future tasks
 
-- [ ] Improve the prompts using GPT-4o for the examples that I specify
+- [ ] Clean up the code to not have default react node things
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
+- [ ] Improve the prompts using synthetic data from GPT-4o for the examples that I specify
+- [ ] Add sharability to the URLs with nanoid
 - [ ] Add rate limiting with Redis Upstash
 - [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 - [ ] Add a settings screen where users can go update their resume and interests overall

@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import OpenAI from 'openai';
+import fs from 'fs';
 
 const together = new OpenAI({
   baseURL: 'https://together.hconeai.com/v1',
@@ -84,43 +85,52 @@ ONLY respond with JSON, nothing else.
   const careers = chatCompletion.choices[0].message.content;
 
   const careerInfoJSON = JSON.parse(careers!);
-  console.log('old career info', careerInfoJSON);
+  console.log('initialResults', careerInfoJSON);
 
-  for (let i = 0; i < careerInfoJSON.length; i++) {
-    const completion = await together.chat.completions.create({
-      messages: [
-        {
-          role: 'system',
-          content:
-            'You are a helpful career expert that ONLY responds in JSON.',
-        },
-        {
-          role: 'user',
-          content: `You are helping a person transition into the ${careerInfoJSON[0].jobTitle} role. Given the context about the person, return more information about the ${careerInfoJSON[0].jobTitle} role in JSON as follows: {workRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
+  let finalResults = await Promise.all(
+    careerInfoJSON.map(async (career: any) => {
+      try {
+        const completion = await together.chat.completions.create({
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a helpful career expert that ONLY responds in JSON.',
+            },
+            {
+              role: 'user',
+              content: `You are helping a person transition into the ${career.jobTitle} role. Given the context about the person, return more information about the ${career.jobTitle} role in JSON as follows: {workRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
 
-        <example>
-        {role: "SEO specialist", workRequired: "10-20 hrs/week", whyItsagoodfit: ["You want to do remote work and this is a good remote job"...], aboutTheRole: "SEO Specialists optimize websites to rank higher in search engine results, aiming to increase online visibility, drive organic traffic, and improve user engagement. They conduct keyword research, analyze competitors, and implement SEO strategies that include on-page optimization, link building, and content creation.", roadmap: [{"Weeks 1-4": "Prepare your resume and start applying for SEO Specialist positions. Leverage your portfolio to showcase your expertise."}, ...]
-        </example>
+          <example>
+          {role: "SEO specialist", workRequired: "10-20 hrs/week", whyItsagoodfit: ["You want to do remote work and this is a good remote job"...], aboutTheRole: "SEO Specialists optimize websites to rank higher in search engine results, aiming to increase online visibility, drive organic traffic, and improve user engagement. They conduct keyword research, analyze competitors, and implement SEO strategies that include on-page optimization, link building, and content creation.", roadmap: [{"Weeks 1-4": "Prepare your resume and start applying for SEO Specialist positions. Leverage your portfolio to showcase your expertise."}, ...]
+          </example>
 
-        <context>
-        ${resumeInfo}
-        ${context}
-        </context>
+          <context>
+          ${resumeInfo}
+          ${context}
+          </context>
 
-        ONLY respond with JSON, nothing else.`,
-        },
-      ],
-      model: 'meta-llama/Llama-3-70b-chat-hf',
-    });
-    const specificCareer = completion.choices[0].message.content;
-    const specificCareerJSON = JSON.parse(specificCareer!);
-    console.log({ specificCareerJSON });
-    console.log('roadmap', specificCareerJSON.roadmap);
-    careerInfoJSON[i] = { ...careerInfoJSON[i], ...specificCareerJSON };
-  }
+          ONLY respond with JSON, nothing else.`,
+            },
+          ],
+          model: 'meta-llama/Llama-3-70b-chat-hf',
+        });
+        const specificCareer = completion.choices[0].message.content;
+        const specificCareerJSON = JSON.parse(specificCareer!);
 
-  console.log('new career info', careerInfoJSON);
-  return new Response(JSON.stringify(careerInfoJSON), {
+        const individualCareerInfo = { ...career, ...specificCareerJSON };
+        return individualCareerInfo;
+      } catch (error) {
+        console.log('Career that errored: ', career.jobTitle);
+        console.log({ error });
+      }
+    })
+  );
+
+  console.log({ finalResults });
+  fs.writeFileSync('finalResults.json', JSON.stringify(finalResults));
+
+  return new Response(JSON.stringify(finalResults), {
     status: 200,
   });
 }
