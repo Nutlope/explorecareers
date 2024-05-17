@@ -139,6 +139,9 @@ export async function POST(request: NextRequest) {
       } catch (error) {
         console.log('Career that errored: ', career.jobTitle);
         console.log({ error });
+        return new Response(JSON.stringify({ error }), {
+          status: 500,
+        });
       }
     })
   );

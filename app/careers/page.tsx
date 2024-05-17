@@ -1,5 +1,6 @@
 'use client';
 
+import toast, { Toaster } from 'react-hot-toast';
 import CareerNode from '@/components/CareerNode';
 import { uploaderOptions } from '@/lib/utils';
 import { UrlBuilder } from '@bytescale/sdk';
@@ -199,6 +200,8 @@ export default function Start() {
     [setEdges]
   );
 
+  const notify = () => toast.error('Failed to generate, please try again.');
+
   async function parsePdf() {
     setLoading(true);
     let response = await fetch('/api/parsePdf', {
@@ -220,6 +223,14 @@ export default function Start() {
         context: additionalContext,
       }),
     });
+
+    if (!response2.ok) {
+      console.error('Failed to fetch');
+      setLoading(false);
+      notify();
+      return;
+    }
+
     let data2 = await response2.json();
     setCareerInfo(data2);
     setLoading(false);
@@ -284,6 +295,7 @@ export default function Start() {
           </Button>
         </div>
       )}
+      <Toaster />
     </div>
   );
 }
