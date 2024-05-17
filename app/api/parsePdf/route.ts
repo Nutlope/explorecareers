@@ -14,8 +14,6 @@ export async function POST(request: NextRequest) {
   const pdfData = await pdfParse(Buffer.from(arrayBuffer));
   const normalizedText = normalizeText(pdfData.text);
 
-  console.log({ normalizedText });
-
   return new Response(JSON.stringify(normalizedText), {
     status: 200,
   });

@@ -17,74 +17,73 @@ interface GetCareersRequest {
 export async function POST(request: NextRequest) {
   const { resumeInfo, context } = (await request.json()) as GetCareersRequest;
 
-  const careerPathPrompt = `
-  Give me 6 career paths that the following user could transition into based on their resume and any additional context. Respond like this in JSON: {jobTitle: string, jobDescription: string, timeline: string, salary: string, difficulty: string}.
-
-  <example>
-  [
-    {
-    "jobTitle": "UX Designer",
-    "jobDescription": "Creates user-centered design solutions to improve product usability and user experience.",
-    "timeline": "3-6 months",
-    "salary": "$85k - $110k",
-    "difficulty": "Medium"
-    },
-    {
-    "jobTitle": "Digital Marketing Specialist",
-    "jobDescription": "Develops and implements online marketing campaigns to drive business growth.",
-    "timeline": "2-4 months",
-    "salary": "$50k - $70k",
-    "difficulty": "Low"
-    },
-    {
-    "jobTitle": "Software Engineer",
-    "jobDescription": "Designs, develops, and tests software applications to meet business needs.",
-    "timeline": "6-12 months",
-    "salary": "$100k - $140k",
-    "difficulty": "High"
-    },
-    {
-    "jobTitle": "Business Analyst",
-    "jobDescription": "Analyzes business needs and develops solutions to improve operations and processes.",
-    "timeline": "3-6 months",
-    "salary": "$65k - $90k",
-    "difficulty": "Medium"
-    },
-    {
-    "jobTitle": "Cybersecurity Specialist",
-    "jobDescription": "Protects computer systems and networks from cyber threats by developing and implementing security protocols.",
-    "timeline": "6-12 months",
-    "salary": "$80k - $120k",
-    "difficulty": "High"
-    }
-    ]
-  </example>
-
-  <resume>
-  ${resumeInfo}
-  </resume>
-
-  <additionalContext>
-  ${context}
-  </additionalContext>
-
-ONLY respond with JSON, nothing else.
-  `;
-
   const chatCompletion = await together.chat.completions.create({
     messages: [
       {
         role: 'system',
         content: 'You are a helpful career expert that ONLY responds in JSON.',
       },
-      { role: 'user', content: careerPathPrompt },
+      {
+        role: 'user',
+        content: `Give me 6 career paths that the following user could transition into based on their resume and any additional context. Respond like this in JSON: {jobTitle: string, jobDescription: string, timeline: string, salary: string, difficulty: string}.
+
+      <example>
+      [
+        {
+        "jobTitle": "UX Designer",
+        "jobDescription": "Creates user-centered design solutions to improve product usability and user experience.",
+        "timeline": "3-6 months",
+        "salary": "$85k - $110k",
+        "difficulty": "Medium"
+        },
+        {
+        "jobTitle": "Digital Marketing Specialist",
+        "jobDescription": "Develops and implements online marketing campaigns to drive business growth.",
+        "timeline": "2-4 months",
+        "salary": "$50k - $70k",
+        "difficulty": "Low"
+        },
+        {
+        "jobTitle": "Software Engineer",
+        "jobDescription": "Designs, develops, and tests software applications to meet business needs.",
+        "timeline": "6-12 months",
+        "salary": "$100k - $140k",
+        "difficulty": "High"
+        },
+        {
+        "jobTitle": "Business Analyst",
+        "jobDescription": "Analyzes business needs and develops solutions to improve operations and processes.",
+        "timeline": "3-6 months",
+        "salary": "$65k - $90k",
+        "difficulty": "Medium"
+        },
+        {
+        "jobTitle": "Cybersecurity Specialist",
+        "jobDescription": "Protects computer systems and networks from cyber threats by developing and implementing security protocols.",
+        "timeline": "6-12 months",
+        "salary": "$80k - $120k",
+        "difficulty": "High"
+        }
+        ]
+      </example>
+
+      <resume>
+      ${resumeInfo}
+      </resume>
+
+      <additionalContext>
+      ${context}
+      </additionalContext>
+
+    ONLY respond with JSON, nothing else.
+      `,
+      },
     ],
     model: 'meta-llama/Llama-3-70b-chat-hf',
   });
   const careers = chatCompletion.choices[0].message.content;
 
   const careerInfoJSON = JSON.parse(careers!);
-  console.log('initialResults', careerInfoJSON);
 
   let finalResults = await Promise.all(
     careerInfoJSON.map(async (career: any) => {
@@ -98,7 +97,7 @@ ONLY respond with JSON, nothing else.
             },
             {
               role: 'user',
-              content: `You are helping a person transition into the ${career.jobTitle} role. Given the context about the person, return more information about the ${career.jobTitle} role in JSON as follows: {workRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
+              content: `You are helping a person transition into the ${career.jobTitle} role in ${career.timeline}. Given the context about the person, return more information about the ${career.jobTitle} role in JSON as follows: {workRequired: string, aboutTheRole: string, whyItsagoodfit: array[], roadmap: [{string: string}, ...]
 
           <example>
           {"role": "DevOps Engineer",
@@ -143,8 +142,6 @@ ONLY respond with JSON, nothing else.
       }
     })
   );
-
-  console.log({ finalResults });
 
   return new Response(JSON.stringify(finalResults), {
     status: 200,

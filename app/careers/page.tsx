@@ -22,6 +22,7 @@ const nodeTypes = {
   careerNode: CareerNode,
 } satisfies NodeTypes;
 
+// TODO: Clean this up
 const initialNodes = [
   {
     id: '1',
@@ -193,8 +194,6 @@ export default function Start() {
       })
     );
   }, [careerInfo]);
-
-  console.log({ nodes, careerInfo, parsedResume });
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds) => addEdge(params, eds)),
