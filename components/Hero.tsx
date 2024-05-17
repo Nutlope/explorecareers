@@ -14,12 +14,12 @@ export default function Hero() {
             Used by 100+ professionals for career inspiration
           </button>
           <h1 className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'>
-            Find the right career for you in seconds
+            Find the right career for you using AI
           </h1>
           <p className='max-w-xl mx-auto'>
-            ExploreCareers makes it simple for you to explore careers to
-            transition to based on your skills and interests, completely for
-            free.
+            Explore Careers allows you to explore careers based on your skills
+            and interests <span className='font-semibold'>using AI</span> in
+            seconds, completely for free.
           </p>
           <div className='flex items-center justify-center gap-x-3 font-medium text-sm'>
             <NavLink

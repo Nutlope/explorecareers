@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Add sharability
+// TODO: Add sharability later on
 export const nanoid = customAlphabet(
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
   7
@@ -32,5 +32,10 @@ export const uploaderOptions = {
     colors: {
       primary: '#000',
     },
+  },
+  tags: ['career_explorer'],
+  locale: {
+    orDragDropFile: 'Your resume is automatically deleted after 24h',
+    uploadFileBtn: 'Upload your Resume',
   },
 };

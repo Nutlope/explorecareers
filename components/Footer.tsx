@@ -21,8 +21,8 @@ const Footer = () => (
         </p>
         <div className='flex items-center gap-x-6 text-gray-400'>
           <a
-            className='tracking-tight flex gap-1 hover:text-gray-700 hover:border-slate-300 transition'
-            href='https://www.together.ai/'
+            className='tracking-tight flex gap-1 hover:underline transition'
+            href='https://dub.sh/together-ai'
             target='_blank'
           >
             <span className='text-gray-500'>

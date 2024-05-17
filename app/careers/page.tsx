@@ -271,10 +271,10 @@ export default function Start() {
             height='350px'
           />
           <Textarea
-            placeholder='Describe more about your career goals, interests, and passions. This will help us match you with the right job paths (optional)'
+            placeholder='Describe any of your career interests and passions. This will help us match you with the right job paths (optional).'
             value={additionalContext}
             onChange={(e) => setAdditionalContext(e.target.value)}
-            className='mt-5 max-w-2xl text-base border border-gray-400'
+            className='mt-5 max-w-2xl text-base border border-gray-400 focus:border-black'
             rows={6}
           />
           <Button onClick={parsePdf} className='mt-10 text-base px-5 py-7 w-60'>
