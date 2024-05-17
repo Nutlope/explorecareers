@@ -167,7 +167,6 @@ export default function Start() {
     initialNodes as Node[]
   );
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [parsedResume, setParsedResume] = useState('');
   const [careerInfo, setCareerInfo] = useState<finalCareerInfo[]>([]);
   const [additionalContext, setAdditionalContext] = useState('');
   const [loading, setLoading] = useState(false);
@@ -210,7 +209,6 @@ export default function Start() {
       body: JSON.stringify({ resumeUrl: url }),
     });
     let data = await response.json();
-    setParsedResume(data);
 
     let response2 = await fetch('/api/getCareers', {
       method: 'POST',
@@ -245,12 +243,12 @@ export default function Start() {
       ) : (
         <div className='p-10 mt-16 flex justify-center items-center flex-col '>
           <h1 className='text-center text-5xl mb-5 font-bold'>
-            Tell us about yourself
+            Upload your resume
           </h1>
           <p className='mb-8 text-center text-gray-600 max-w-3xl'>
             Upload your resume to get started and add any extra context below.
             We'll analyze your resume along with the interests you provide and
-            provide you with a personalized career path.
+            provide you with 6 personalized career paths for you.
           </p>
           <UploadDropzone
             options={uploaderOptions}
