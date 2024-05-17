@@ -9,7 +9,6 @@
 
 <p align="center">
   <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
-  <a href="#tasks"><strong>Tasks</strong></a> ·
   <a href="#future-tasks"><strong>Future Tasks</strong></a> ·
     <a href="#inspiration"><strong>Inspiration</strong></a>
 </p>
@@ -27,13 +26,10 @@ This app lets people upload their resumes, fill in some of their interests, and 
 - [Reactflow](https://reactflow.dev/) for the data visualization
 - [Helicone](https://helicone.ai/) for LLM observability
 
-## Tasks
-
-- [ ] Fix the one call that always returns null: DevOps engineer
-
 ## Future tasks
 
 - [ ] Clean up the code to not have default react node things
+- [ ] Add in better JSON outputs
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Improve the prompts using synthetic data from GPT-4o for the examples that I specify
 - [ ] Add sharability to the URLs with nanoid
