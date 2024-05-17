@@ -31,6 +31,7 @@ This app lets people upload their resumes, fill in some of their interests, and 
 ## Future tasks
 
 - [ ] Build in a PII remover so that we can remove people's personal info from their resume
+- [ ] Add loading state to inform people that it may take up to 15-20 seconds to generate
 - [ ] Clean up the code to not have default react node data that I have right now
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Improve the prompts using synthetic data from GPT-4o for the examples that I specify
