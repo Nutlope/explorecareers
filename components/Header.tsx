@@ -9,7 +9,10 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const [state, setState] = useState(false);
 
-  const navigation = [{ title: 'Homepage', path: '/' }];
+  const navigation = [
+    { title: 'Homepage', path: '/' },
+    { title: 'Explore Careers', path: '/careers' },
+  ];
 
   const pathname = usePathname();
 
@@ -96,14 +99,6 @@ const Header = () => {
                   </li>
                 );
               })}
-              <li>
-                <NavLink
-                  href='/careers'
-                  className='block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline'
-                >
-                  Explore careers for you
-                </NavLink>
-              </li>
             </ul>
           </div>
         </div>
