@@ -11,7 +11,7 @@ export default function Hero() {
           <button
             className={`border py-2 rounded-2xl hover:bg-gray-100 transition px-5 text-sm text-gray-500 hover:text-gray-600`}
           >
-            Used by 100+ professionals for career inspiration
+            Used by 2,000+ professionals for career inspiration
           </button>
           <h1 className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'>
             Find the right career for you using AI
