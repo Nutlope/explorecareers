@@ -32,6 +32,9 @@ export const uploaderOptions = {
     colors: {
       primary: '#000',
     },
+    fontFamilies: {
+      base: 'Inter',
+    }
   },
   tags: ['career_explorer'],
   locale: {
