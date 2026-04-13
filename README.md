@@ -18,25 +18,20 @@
 
 This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
 
-- [Llama-3-70B](https://llama.meta.com/llama3/) for the LLM
+- [Qwen3-Next-80B](https://www.together.ai/models/qwen3-next-80b-a3b-instruct) for the LLM
 - [Together.ai](https://togetherai.link/) for the AI API (inference)
 - [Plausible](https://plausible.io/) for website analytics
 - [Reactflow](https://reactflow.dev/) for the data visualization
 - [Helicone](https://helicone.ai/) for LLM observability
 - Next.js [App Router](https://nextjs.org/docs/app) for the framework
 - [S3 / ByteScale](https://www.bytescale.com/) for the PDF storage
-- [Vercel](https://vercel.com/) for hosting & functions
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 
 ## Future tasks
 
-- [ ] Build in a PII remover so that we can remove people's personal info from their resume
-- [ ] Add loading state to inform people that it may take up to 15-20 seconds to generate
-- [ ] Clean up the code to not have default react node data that I have right now
 - [ ] Add authentication with Clerk to make people create accounts and remember their resumes
 - [ ] Improve the prompts using synthetic data from GPT-4o for the examples that I specify
 - [ ] Add sharability to the URLs with nanoid
-- [ ] Add rate limiting with Redis Upstash
 - [ ] Add multi-step form where people can add their interests and add this to the prompt of the first endpoint to use someone's interests in there
 - [ ] Add a settings screen where users can go update their resume and interests overall
 - [ ] Add functionality to let users suggest new careers themselves and get a developed plan for it

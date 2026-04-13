@@ -1,0 +1,32 @@
+# Ralphy Configuration
+# https://github.com/michaelshimeles/ralphy
+
+# Project info (auto-detected, edit if needed)
+project:
+  name: "career-exploration"
+  language: "TypeScript"
+  framework: "Next.js"
+  description: "" # Add a brief description
+
+# Commands (auto-detected from package.json/pyproject.toml)
+commands:
+  test: ""
+  lint: ""
+  build: "pnpm run build"
+
+# Rules - instructions the AI MUST follow
+# These are injected into every prompt
+rules: []
+  # Examples:
+  - "Never install vitest or create tests, just work on components and utils and stuff"
+  # - "Follow the error handling pattern in src/utils/errors.ts"
+  # - "All API endpoints must have input validation with Zod"
+  # - "Use server actions instead of API routes in Next.js"
+
+# Boundaries - files/folders the AI should not modify
+boundaries:
+  never_touch: []
+    # Examples:
+    # - "src/legacy/**"
+    # - "migrations/**"
+    # - "*.lock"
