@@ -19,7 +19,7 @@
 This app lets people upload their resumes, fill in some of their interests, and get a list of possible careers they could do.
 
 - [Qwen3-Next-80B](https://www.together.ai/models/qwen3-next-80b-a3b-instruct) for the LLM
-- [Together.ai](https://togetherai.link/) for the AI API (inference)
+- [Together.ai](https://togetherai.link/?utm_source=explorecareers&utm_medium=referral&utm_campaign=example-app) for the AI API (inference)
 - [Plausible](https://plausible.io/) for website analytics
 - [Reactflow](https://reactflow.dev/) for the data visualization
 - [Helicone](https://helicone.ai/) for LLM observability
