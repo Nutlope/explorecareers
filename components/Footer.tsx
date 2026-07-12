@@ -22,7 +22,7 @@ const Footer = () => (
         <div className='flex items-center gap-x-6 text-gray-400'>
           <a
             className='tracking-tight flex gap-1 hover:underline transition'
-            href='https://togetherai.link'
+            href='https://togetherai.link/?utm_source=explorecareers&utm_medium=referral&utm_campaign=example-app'
             target='_blank'
           >
             <span className='text-gray-500'>
